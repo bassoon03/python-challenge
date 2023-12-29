@@ -20,32 +20,17 @@ with open(file) as csvfile:
     
         total += 1
     
-    print('Total Values: ', total)
+    print('Total Votes: ', total)
 
-    candidates = {}
+    
+    candidates = []
     
     for row in csvreader:
+        candidates.append(row[4])
     
-        if row[2] not in candidates.keys():
-    
-            candidates[row[2]] = 1
-    
-        else:
-    
-            candidates[row[2]] += 1
-    
+    print(candidates)
+    candidates = list(set(candidates))
+    print(candidates)
+        
+            
 
-    for keys, value in candidates.items():
-    
-        print(keys)
-    
-        print(keys, ":", value)
-    
-        print(keys,":", 100*(value/total),"%")
-
-    
-    key_list = list(candidates.keys())
-    
-    value_list = list(candidates.values())
-    
-    print('The winner is ', key_list[value_list.index(max(value_list))])
