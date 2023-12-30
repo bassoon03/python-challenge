@@ -1,4 +1,4 @@
-#Operating system and CSV modules imported.
+#Operating system, CSV, and pandas modules imported.
 import os
 import csv
 
@@ -27,15 +27,16 @@ with open(file) as csvfile:
         total += 1
     
     print('Total Votes: ', total)
-
+    
     #An empty list is created to store the names of the candidates.
     candidates = []
-    
+
     #Every row in the file is looped through and each candidates name will be added to the list each time it appears.
     for row in csvreader:
         
         candidates.append(row[2])
     
+    print(candidates)
     
     #Duplicate elements are stripped from the list "candidates."
     candidates1 = list(set(candidates))
