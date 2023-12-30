@@ -26,10 +26,10 @@ with open(file) as csvfile:
     months = 0.0
     
     #Variable to store the greatest increase, initialized to 0
-    greatest = 0.0
+    increase = 0.0
     
     #Variable to store the greatest decrease, initialized to 0
-    least = 0.0
+    decrease = 0.0
     
     #Variable to store the total change, initialized to 0
     total = 0.0
@@ -62,18 +62,18 @@ with open(file) as csvfile:
     for i in range(len(profits)-1):
         
         
-        #Differences between successive values in "profits" are compared. If they are greater than the variable "greatest",
-        #then "greatest" is updated
-        if profits[i+1]-profits[i] > greatest:
+        #Differences between successive values in "profits" are compared. If they are greater than the variable "increase",
+        #then "increase" is updated
+        if profits[i+1]-profits[i] > increase:
             
-            greatest = profits[i+1]-profits[i]
+            increase = profits[i+1]-profits[i]
         
-        #Similarly, if the difference between successive values in "profits" is less than "least", then least is updated
-        if profits[i+1]-profits[i] < least:
+        #Similarly, if the difference between successive values in "profits" is less than "decrease", then "decrease" is updated
+        if profits[i+1]-profits[i] < decrease:
             
-            least = profits[i+1]-profits[i]
+            decrease = profits[i+1]-profits[i]
         
-        #The list "profits_c" is filled with the differences between successive value, that is, the changes
+        #The list "profits_c" is filled with the differences between successive value, that is, the changes between months
         profits_c.append(profits[i+1]-profits[i])
 
     
@@ -96,9 +96,9 @@ with open(file) as csvfile:
     
     
     #The greatest increase is printed
-    print('Greatest Increase: ', greatest)
+    print('Greatest Increase: ', increase)
     
     
     #The greatest decrease is printed
-    print('Greastest Decrease: ', least)
+    print('Greastest Decrease: ', decrease)
 
