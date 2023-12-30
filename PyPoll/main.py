@@ -18,6 +18,8 @@ with open(file) as csvfile:
     
     print(f"CSV Header: {csv_header}")
 
+    
+    
     #A variable "total" will store the total number of votes cast and is initialized at 0.
     total = 0
     
@@ -27,6 +29,9 @@ with open(file) as csvfile:
         total += 1
     
     print('Total Votes: ', total)
+    
+    
+    
     
     #An empty list is created to store the names of the candidates.
     candidates = []
@@ -43,6 +48,9 @@ with open(file) as csvfile:
     
     print(candidates1)
     
+    
+    
+    
     #An empty list to hold the number of votes each candidate received is created.
     votes = []
     
@@ -53,6 +61,8 @@ with open(file) as csvfile:
     
     print(votes)
 
+    
+    
     #The list of candidates and the list of their corresponding vote counts are zipped.
     candidate_counts = zip(candidates1, votes)
     
@@ -60,6 +70,9 @@ with open(file) as csvfile:
     for name in candidates1:
     
         print(name, ":", candidate_counts[name][1]) #May need to be 0 instead of name
+    
+    
+    
     
     
     #An empty list is created to hold the percentage of all votes each candidate received.
@@ -77,6 +90,8 @@ with open(file) as csvfile:
     for name in candidates1:
     
         print(name, ":", vote_percent[name][1], "%") #May need to be 0 instead of name
+    
+    
     
     
     #The highest vote count is found by using the max function on the list "votes" and is stored as votes. 
