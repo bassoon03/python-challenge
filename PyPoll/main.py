@@ -43,6 +43,7 @@ with open(file) as csvfile:
     
     print(candidates)
     
+    
     #Duplicate elements are stripped from the list "candidates."
     candidates1 = list(set(candidates))
     
