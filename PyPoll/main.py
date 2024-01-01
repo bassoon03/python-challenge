@@ -47,7 +47,7 @@ with open(file) as csvfile:
     #Duplicate elements are stripped from the list "candidates."
     candidates1 = list(set(candidates))
     
-    print(candidates1)
+    print("Candidates receiving votes: ", candidates1)
     
     
     
@@ -55,7 +55,7 @@ with open(file) as csvfile:
     #An empty list to hold the number of votes each candidate received is created.
     votes = []
     
-    #For every name in the pared down, the number of times that name occurs in the original list is counted and stored in "votes."
+    #For every name in the pared down list, the number of times that name occurs in the original list is counted and stored in "votes."
     for name in candidates1:
     
         votes.append(candidates.count(name))
@@ -105,6 +105,24 @@ with open(file) as csvfile:
         if pair[1] == high:
     
             print('The winner is ', pair[0])
+
+    #Data to be added to text file
+    data1 = print('Total Votes: ', total)
+    data2 = print("Candidates receiving votes: ", candidates1)
+    data3 = print(name, ":", candidate_counts[name][1])
+    data4 = print(name, ":", vote_percent[name][1], "%")
+    data5 = print('The winner is ', pair[0])
+
+    #Creating new text file in analysis folder and writing to it
+    file_path = 'C:\\Users\\Owner\\OneDrive\\Desktop\\python-challenge\\PyPoll\\analysis\\PyPoll-analysis.txt'
+    with open(file_path,'w') as analysis:
+        analysis.write(data1)
+        analysis.write(data2)
+        analysis.write(data3)
+        analysis.write(data4)
+        analysis.write(data5)
+
+
 
 
         
