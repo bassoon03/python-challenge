@@ -23,39 +23,31 @@ with open(file) as csvfile:
     #A variable "total" will store the total number of votes cast and is initialized at 0.
     total = 0
     
-    #Each row in the file is looped through and total is incremented by 1, since each voter casts a single vote.
     
+    #An empty list is created to store the names of the candidates.
     candidates = []
     
+    #csvreader is stored as a list called rows.
     rows = list(csvreader)
     
+    #Loop through row in rows.
     for row in rows:
-        
+       
+        #Each row in the file is looped through and total is incremented by 1, since each voter casts a single vote.
         total += 1
         
+        #Every row in the file is looped through and each candidates name will be added to the list each time it appears.
         candidates.append(row[2])
     
     print('Total Votes: ', total)
-    
+
+    #All duplicates are removed from "candidates" to create a list where each candidate's name appears once.
     candidates1 = list(set(candidates))
     
     print("Candidates receiving votes: ", candidates1)
-    #An empty list is created to store the names of the candidates.
     
 
-    #Every row in the file is looped through and each candidates name will be added to the list each time it appears.
-    
-        
-    
-        
-    
-    
-    #Duplicate elements are stripped from the list "candidates."
-    
-    
-    
-    
-    
+
     #An empty list to hold the number of votes each candidate received is created.
     votes = []
     
@@ -64,17 +56,26 @@ with open(file) as csvfile:
     
         votes.append(candidates.count(name))
     
-    print(votes)
+    print("Votes for each candidate: ", votes)
 
-    
-    
+
+
     #The list of candidates and the list of their corresponding vote counts are zipped.
     candidate_counts = zip(candidates1, votes)
     
-    #The candidates name is printed with their vote count.
-    for name in candidates1:
+    #The largest vote count in votes is identified and stored as "high".
+    high = max(votes)
     
-        print(name, ":", candidate_counts[name][1]) #May need to be 0 instead of name
+    #Each tuple in "candidate_counts" is looped through and candidate names are printed with corresponding vote totals.
+    for t in candidate_counts:
+    
+        print(t[0], ":", t[1])
+        
+        #When the first entry in a tuple matches the value of "high", the corresponding candidate name is assigned 
+        #to the variable "winner".
+        if t[1] == high:
+            
+            winner = t[0]
     
     
     
@@ -86,49 +87,45 @@ with open(file) as csvfile:
     #Each value in "votes" will be divided by "total" to get the percentage of votes. The value will be stored as a float.
     for num in votes:
     
-        percent.append(float(num/total))
+        percent.append((num/total))
     
     #The list of candidates and the list of their corresponding vote percentages are zipped.
     vote_percent = zip(candidates1, percent)
 
     #The candidate name is printed with their vote percentage.
-    for name in candidates1:
+    for p in vote_percent:
     
-        print(name, ":", vote_percent[name][1], "%") #May need to be 0 instead of name
-    
-    
+        print(p[0], ":", 100 * p[1], "%")
     
     
-    #The highest vote count is found by using the max function on the list "votes" and is stored as votes. 
-    high = max(votes)
+    #The winner's name is printed.
+    print('The winner is', winner,'.')
     
-    #Every tuple in candidate_counts is looped through with second item in each tuple compared to the value of "high."
-    #When the value of the second item matches the value of "high," the corresponding candidate is decalared the winner.
-    for pair in candidate_counts:
     
-        if pair[1] == high:
     
-            print('The winner is ', pair[0])
+    file_path = 'C:\\Users\\Owner\\OneDrive\\Desktop\\python-challenge\\PyPoll\\analysis\\PyPoll-analysis.txt'
 
-    #Data to be added to text file
-    #data1 = print('Total Votes: ', total)
-    #data2 = print("Candidates receiving votes: ", candidates1)
-    #data3 = print(name, ":", candidate_counts[name][1])
-    #data4 = print(name, ":", vote_percent[name][1], "%")
-    #data5 = print('The winner is ', pair[0])
-
-    #Creating new text file in analysis folder and writing to it
-    #file_path = 'C:\\Users\\Owner\\OneDrive\\Desktop\\python-challenge\\PyPoll\\analysis\\PyPoll-analysis.txt'
-    #with open(file_path,'w') as analysis:
-        #analysis.write(data1)
-        #analysis.write(data2)
-        #analysis.write(data3)
-        #analysis.write(data4)
-        #analysis.write(data5)
-
-
-
-
+    with open(file_path,'w') as analysis:
         
+        analysis.write(f'Total Votes:{total}\n')
+
+        analysis.write(f'Candidates receiving votes:{candidates1}\n')
+
+        for t in candidate_counts:
+
+            analysis.write(f'{t[0]}:{t[1]}\n')
+
+        for p in vote_percent:
+
+            analysis.write(f'{p[0]}:{(100 * p[1])}%\n')
+
+        analysis.write(f'The winner is {winner}.')
+
+    analysis.close()
+
+csvfile.close()
+
+
+#The program won't accept my code for printing the candidates with their vote totals and vote percentages to the text file.        
             
 

@@ -109,14 +109,19 @@ with open(file) as csvfile:
     #data4 = print('Greatest Increase: ', increase)
     #data5 = print('Greastest Decrease: ', decrease)
 
-    #file_pathx = 'C:\\Users\\Owner\\OneDrive\\Desktop\\python-challenge\\PyBank\\analysis\\PyBank-analysis.txt'
+    file_pathx = 'C:\\Users\\Owner\\OneDrive\\Desktop\\python-challenge\\PyBank\\analysis\\PyBank-analysis.txt'
 
-    #with open(file_pathx,'w') as analysis_x:
-        #analysis_x.write(data1)
-        #analysis_x.write(data2)
-        #analysis_x.write(data3)
-        #analysis_x.write(data4)
-        #analysis_x.write(data5)
+    with open(file_pathx,'w') as analysis_x:
+
+        analysis_x.write(f'Months: {months}\n')
+
+        analysis_x.write(f'Total: {total}\n')
+
+        analysis_x.write(f'Average Change: {sum(profits_c)/(months-1)}\n')
+
+        analysis_x.write(f'Greatest Increase: {increase}\n')
+
+        analysis_x.write(f'Greatest Decrease: {decrease}')
 
 
 

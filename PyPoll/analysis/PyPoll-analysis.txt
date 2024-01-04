@@ -1,0 +1,3 @@
+Total Votes:369711
+Candidates receiving votes:['Charles Casper Stockham', 'Diana DeGette', 'Raymon Anthony Doane']
+The winner is Diana DeGette.

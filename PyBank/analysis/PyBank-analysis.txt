@@ -1,0 +1,5 @@
+Months: 86.0
+Total: 22564198.0
+Average Change: -8311.105882352942
+Greatest Increase: 1862002.0
+Greatest Decrease: -1825558.0
