@@ -24,30 +24,34 @@ with open(file) as csvfile:
     total = 0
     
     #Each row in the file is looped through and total is incremented by 1, since each voter casts a single vote.
-    for row in csvreader:
     
-        total += 1
-    
-    print('Total Votes: ', total)
-    
-    
-    
-    
-    #An empty list is created to store the names of the candidates.
     candidates = []
-
-    #Every row in the file is looped through and each candidates name will be added to the list each time it appears.
-    for row in csvreader:
+    
+    rows = list(csvreader)
+    
+    for row in rows:
+        
+        total += 1
         
         candidates.append(row[2])
     
-    print(candidates)
+    print('Total Votes: ', total)
     
-    
-    #Duplicate elements are stripped from the list "candidates."
     candidates1 = list(set(candidates))
     
     print("Candidates receiving votes: ", candidates1)
+    #An empty list is created to store the names of the candidates.
+    
+
+    #Every row in the file is looped through and each candidates name will be added to the list each time it appears.
+    
+        
+    
+        
+    
+    
+    #Duplicate elements are stripped from the list "candidates."
+    
     
     
     
@@ -107,20 +111,20 @@ with open(file) as csvfile:
             print('The winner is ', pair[0])
 
     #Data to be added to text file
-    data1 = print('Total Votes: ', total)
-    data2 = print("Candidates receiving votes: ", candidates1)
-    data3 = print(name, ":", candidate_counts[name][1])
-    data4 = print(name, ":", vote_percent[name][1], "%")
-    data5 = print('The winner is ', pair[0])
+    #data1 = print('Total Votes: ', total)
+    #data2 = print("Candidates receiving votes: ", candidates1)
+    #data3 = print(name, ":", candidate_counts[name][1])
+    #data4 = print(name, ":", vote_percent[name][1], "%")
+    #data5 = print('The winner is ', pair[0])
 
     #Creating new text file in analysis folder and writing to it
-    file_path = 'C:\\Users\\Owner\\OneDrive\\Desktop\\python-challenge\\PyPoll\\analysis\\PyPoll-analysis.txt'
-    with open(file_path,'w') as analysis:
-        analysis.write(data1)
-        analysis.write(data2)
-        analysis.write(data3)
-        analysis.write(data4)
-        analysis.write(data5)
+    #file_path = 'C:\\Users\\Owner\\OneDrive\\Desktop\\python-challenge\\PyPoll\\analysis\\PyPoll-analysis.txt'
+    #with open(file_path,'w') as analysis:
+        #analysis.write(data1)
+        #analysis.write(data2)
+        #analysis.write(data3)
+        #analysis.write(data4)
+        #analysis.write(data5)
 
 
 

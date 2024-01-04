@@ -42,9 +42,9 @@ with open(file) as csvfile:
     profits_c = []
     
     
-    
+    rows = list(csvreader)
     #Loop through the rows in csvreader
-    for row in csvreader:
+    for row in rows:
         
         #"months" variable is incremented by 1 for each row in csvreader
         months += 1
@@ -55,7 +55,7 @@ with open(file) as csvfile:
         #"profits" list filled with values in "Profits/Losses" column
         profits.append(row[1])
     
-    
+    print(profits)
     
     #Looping throught the list "profits", we only want the differences between successive value, that is why the range
     #is 1 less than the length of the "profits"
@@ -64,17 +64,17 @@ with open(file) as csvfile:
         
         #Differences between successive values in "profits" are compared. If they are greater than the variable "increase",
         #then "increase" is updated
-        if profits[i+1]-profits[i] > increase:
+        if float(profits[i+1]) -float(profits[i]) > increase:
             
-            increase = profits[i+1]-profits[i]
+            increase = float(profits[i+1]) - float(profits[i])
         
         #Similarly, if the difference between successive values in "profits" is less than "decrease", then "decrease" is updated
-        if profits[i+1]-profits[i] < decrease:
+        if float(profits[i+1]) - float(profits[i]) < decrease:
             
-            decrease = profits[i+1]-profits[i]
+            decrease = float(profits[i+1]) - float(profits[i])
         
         #The list "profits_c" is filled with the differences between successive value, that is, the changes between months
-        profits_c.append(profits[i+1]-profits[i])
+        profits_c.append(float(profits[i+1]) - float(profits[i]))
 
     
     
@@ -103,20 +103,20 @@ with open(file) as csvfile:
     print('Greastest Decrease: ', decrease)
 
 
-    data1 = print('Months: ', months)
-    data2 = print('Total: ', total)
-    data3 = print('Average Change: ', sum(profits_c)/(months-1))
-    data4 = print('Greatest Increase: ', increase)
-    data5 = print('Greastest Decrease: ', decrease)
+    #data1 = print('Months: ', months)
+    #data2 = print('Total: ', total)
+    #data3 = print('Average Change: ', sum(profits_c)/(months-1))
+    #data4 = print('Greatest Increase: ', increase)
+    #data5 = print('Greastest Decrease: ', decrease)
 
-    file_pathx = 'C:\\Users\\Owner\\OneDrive\\Desktop\\python-challenge\\PyBank\\analysis\\PyBank-analysis.txt'
+    #file_pathx = 'C:\\Users\\Owner\\OneDrive\\Desktop\\python-challenge\\PyBank\\analysis\\PyBank-analysis.txt'
 
-    with open(file_pathx,'w') as analysis_x:
-        analysis_x.write(data1)
-        analysis_x.write(data2)
-        analysis_x.write(data3)
-        analysis_x.write(data4)
-        analysis_x.write(data5)
+    #with open(file_pathx,'w') as analysis_x:
+        #analysis_x.write(data1)
+        #analysis_x.write(data2)
+        #analysis_x.write(data3)
+        #analysis_x.write(data4)
+        #analysis_x.write(data5)
 
 
 
