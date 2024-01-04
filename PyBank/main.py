@@ -123,6 +123,10 @@ with open(file) as csvfile:
 
         analysis_x.write(f'Greatest Decrease: {decrease}')
 
+    analysis_x.close()
+
+csvfile.close()
+
 
 
 
